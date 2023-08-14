@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="UTF-8">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="styles.css"> <!-- Link para o arquivo CSS -->
+    <script src="script.js"></script> <!-- Link para o arquivo JS -->
+    <title>Cadastro</title>
+</head>
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<body>
+    <div class="wrapper">
+        <div id="formContent">
+            <!-- Tabs Titles -->
+
+            <!-- Icon -->
+            <div class="iconuser">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" style="color: #fff;"
+                    class="bi bi-person-fill" viewBox="0 0 16 16">
+                    <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
+                </svg>
+                <!-- <img src="img/tenis.png" id="icon" alt="User Icon" /> -->
+            </div>
+
+            <!-- Login Form -->
+            <form action="cadastro.php" method="post">
+                <input type="email" id="email" class="fadeIn second" name="email" placeholder="Email" required>
+                <input type="text" id="login" class="fadeIn second" name="login" placeholder="Login" required>
+                <input type="password" id="password" class="fadeIn third" name="password" placeholder="Password"
+                    required>
+                <input type="submit" id="submit" class="fadeIn fourth" value="Cadastrar">
+            </form>
+            <div id="formFooter">
+                <a class="underlineHover" href="login.html">Login</a>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+</html>

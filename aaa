@@ -1,0 +1,64 @@
+<?php
+// Inicia a sessão
+session_start();
+
+// Verifica se o usuário não está autenticado, redireciona para a página de login
+if (!isset($_SESSION['usuario_autenticado']) || $_SESSION['usuario_autenticado'] !== true) {
+    header("Location: login.html");
+    exit();
+}
+
+// Conexão com o banco de dados (substitua pelos seus dados)
+$hostname = "127.0.0.1";
+$port = "3306";
+$username = "root";
+$password = "";
+$dbname = "trafego"; // Substitua pelo nome do seu banco de dados
+
+$conn = mysqli_connect($hostname, $username, $password, $dbname);
+
+if (!$conn) {
+    die("Falha na conexão: " . mysqli_connect_error());
+}
+
+// Consulta SQL para selecionar todos os registros da tabela
+$sql = "SELECT * FROM tenis_web";
+$result = mysqli_query($conn, $sql);
+?>
+
+<!DOCTYPE html>
+<html lang="UTF-8">
+
+<head>
+    <link rel="stylesheet" type="text/css" href="styles.css"> <!-- Link para o arquivo CSS -->
+    <script src="script.js"></script> <!-- Link para o arquivo JS -->
+    <title>Homepage</title>
+</head>
+
+<body>
+    <h1>Tabela de Dados</h1>
+
+    <!-- Tabela para exibir os dados -->
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Senha</th>
+        </tr>
+        <?php while ($row = mysqli_fetch_assoc($result)) { ?>
+            <tr>
+                <td><?php echo $row['id']; ?></td>
+                <td><?php echo $row['email']; ?></td>
+                <td><?php echo $row['login']; ?></td>
+                <td><?php echo $row['senha']; ?></td>
+            </tr>
+        <?php } ?>
+    </table>
+</body>
+
+</html>
+
+<?php
+// Fechar a conexão com o banco de dados
+mysqli_close($conn);
+?>
